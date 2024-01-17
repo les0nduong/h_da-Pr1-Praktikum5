@@ -6,6 +6,26 @@ void ignoreLine()
 {
     cin.ignore(259, '\n');
 }
+// Kopierkonstuktor
+Fraction::Fraction(const Fraction &f)
+{
+
+    numerator = f.numerator;
+    denominator = f.denominator;
+
+    cout << "Kopierkonstruktor aufgerufen " << endl;
+}
+
+Fraction &Fraction::operator=(const Fraction &b)
+
+{
+
+    this->setNum(b.numerator);
+    this->setDenom(b.denominator);
+    cout << "Zuweisungsoperator aufgerufen  " << endl;
+    return *this;
+    //  TODO: insert return statement here
+}
 
 Fraction::~Fraction()
 {
@@ -129,4 +149,52 @@ void Fraction::read()
     Fraction::numerator = inputAbove;
     Fraction::denominator = inputLower;
     Fraction::format();
+}
+
+Fraction Fraction::add(Fraction &f1Ref)
+{
+    Fraction result;
+    int tempNom{}, tempDenom{};
+    tempNom = this->getNum() * f1Ref.getDenom() + f1Ref.getNum() * this->getNum();
+    tempDenom = this->getDenom() * f1Ref.getDenom();
+    result.setNum(tempNom);
+    result.setDenom(tempDenom);
+    result.cancel();
+    return result;
+
+}; // Addition zweier Brüche
+Fraction Fraction::subtract(Fraction &f1Ref)
+{
+    Fraction result;
+    int tempNom{}, tempDenom{};
+    tempNom = this->getNum() * f1Ref.getDenom() - f1Ref.getNum() * this->getNum();
+    tempDenom = this->getDenom() * f1Ref.getDenom();
+    result.setNum(tempNom);
+    result.setDenom(tempDenom);
+    result.cancel();
+    return result;
+};
+; // Subtraktion zweier Brüche
+Fraction Fraction::multiply(Fraction &f1Ref)
+{
+    Fraction result;
+    int tempNom{}, tempDenom{};
+    tempNom = this->getNum() * f1Ref.getNum();
+    tempDenom = this->getDenom() * f1Ref.getDenom();
+    result.setNum(tempNom);
+    result.setDenom(tempDenom);
+    result.cancel();
+    return result;
+
+}; // Multiplikation zweier Brüche
+Fraction Fraction::divide(Fraction &f1Ref)
+{
+    Fraction result;
+    int tempNom{}, tempDenom{};
+    tempNom = this->getNum() * f1Ref.getDenom();
+    tempDenom = this->getDenom() * f1Ref.getNum();
+    result.setNum(tempNom);
+    result.setDenom(tempDenom);
+    result.cancel();
+    return result;
 }
