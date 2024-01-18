@@ -1,9 +1,11 @@
 #include <iostream>
 #include "fraction.h"
 #include "aufgabe18.h"
+#include "aufgabe19.h"
 using namespace std;
 
 void aufgabe17()
+
 {
     // local variables!
     Fraction f1; // Standardkonstruktor mir vorbelegten Werten
@@ -37,19 +39,32 @@ void aufgabe17()
     f3 = f1; // Zuweisungsoperator
     f3.print();
 }
+
+void aufgabe18()
+{
+    Lebensmittel mittagessen("Mittagessen");
+    Fleisch steak("Steak");
+    Obst apfel("Apfel");
+    Obst banane("Banane");
+    Gemuese paprika("Paprika");
+    mittagessen.zubereiten();
+    steak.zubereiten();
+    apfel.zubereiten();
+    banane.zubereiten();
+    paprika.zubereiten();
+    steak.Lebensmittel::zubereiten();
+}
+void aufgabe19(){
+        Herzschrittmacher HsMaker;
+        SmartWatch swa;
+        Mensch superman(HsMaker);
+        superman.setObject(&swa);
+        superman.gibLaut();
+}
 int main()
 {
-    aufgabe17();
-    /*    Lebensmittel mittagessen("Mittagessen");
-       Fleisch steak("Steak");
-       Obst apfel("Apfel");
-       Obst banane("Banane");
-       Gemuese paprika("Paprika");
-       mittagessen.zubereiten();
-       steak.zubereiten();
-       apfel.zubereiten();
-       banane.zubereiten();
-       paprika.zubereiten();
-       steak.Lebensmittel::zubereiten(); */
+    // aufgabe17();
+    //aufgabe18();
+    aufgabe19();
     return 0;
 }

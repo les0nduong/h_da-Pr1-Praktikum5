@@ -40,12 +40,12 @@ void Fleisch::zubereiten()
 
 void Obst::zubereiten()
 {
-    std::cout << Obst::getName() << "Schaelen" << std::endl;
+    std::cout << Obst::getName() << " Schaelen" << std::endl;
 }
 
 void Gemuese::zubereiten()
 {
-    std::cout << Gemuese::getName() << "Puzen" << std::endl;
+    std::cout << Gemuese::getName() << " Puzen" << std::endl;
 }
 
 Obst::~Obst()

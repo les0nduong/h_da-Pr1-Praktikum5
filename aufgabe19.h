@@ -8,6 +8,7 @@ using namespace std;
 class Herzschrittmacher
 {
 public:
+    Herzschrittmacher();
     Herzschrittmacher(string name);
     void gibLaut();
 
@@ -18,8 +19,7 @@ private:
 class Herz
 {
 public:
-    Herz(string name);
-    Herz();
+    Herz(string name_ = "BummBumm") : name(name_){};
     void gibLaut();
 
 private:
@@ -29,7 +29,7 @@ private:
 class SmartWatch
 {
 public:
-    SmartWatch(string name);
+    SmartWatch(string name_ = "TickTick") : name(name_){};
     void gibLaut();
 
 private:
@@ -40,15 +40,13 @@ class Mensch
 {
 public:
     // Mensch();
-    Mensch(Herzschrittmacher &refH) : heart(Herz());
-
+    Mensch(Herzschrittmacher &refH);
     void setObject(SmartWatch *sW);
     void gibLaut();
 
 private:
     Herzschrittmacher pacemaker; // Aggregation
     Herz heart;                  // Komposition
-    SmartWatch *sw;              // Assoziation
+    SmartWatch* sw;     // Assoziation
 };
-
 #endif
